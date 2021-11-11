@@ -4,6 +4,7 @@
   background-color: #1b1a1b;
   width: 100vw;
   left: -10px;
+  overflow: hidden;
 }
 #wStat {
   width: 350px;

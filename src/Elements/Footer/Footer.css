@@ -3,10 +3,13 @@ footer {
   height: auto;
   width: 100vw;
   left: -10px;
-  bottom: -30px;
   background-color:black;
 }
-a {
+.prof-links {
+  background-color: black;
+  border: solid;
+}
+.profile-link {
   display: block;
   width: 100px;
   margin: auto;

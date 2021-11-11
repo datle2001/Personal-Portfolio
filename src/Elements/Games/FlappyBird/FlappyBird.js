@@ -21,23 +21,8 @@ const playingScore = {
   top: 0,
   left: SCREENWIDTH/2-60
 }
-const startButton = {
-  left: SCREENWIDTH/2-25,
-  top: SCREENHEIGHT/2-50
-}
-const StaticColumns = () => {
-  return(
-    <div>
-      <div className='column' style={{width: COLUMNWIDTH, top: 0, left: SCREENWIDTH-100, height: 300}}></div>
-      <div className='column' style={{width: COLUMNWIDTH, bottom: COLUMNBOTTOM, left: SCREENWIDTH-100, height: FLYINGSPACE-300-HOLEHEIGHT}}></div>
-    </div>
-  )
-}
-const StaticBird = () => {
-  return (
-    <div id='bird' style={{width: BIRDWIDTH, height: BIRDHEIGHT, left: SCREENWIDTH/2-BIRDWIDTH/2, top: FLYINGSPACE/2}}/>
-  )
-}
+
+
 function randomHeight() {
   return Math.random()*(FLYINGSPACE - HOLEHEIGHT);
 };
@@ -121,7 +106,6 @@ class Columns extends React.Component {
   }
   componentDidMount() {
     document.addEventListener('animationiteration', this.setTopHeight);
-    
   };
   setTopHeight() {
     this.setState(() => ({
@@ -225,17 +209,15 @@ class Bird extends React.Component {
     )
   }
 }
-class FlappyBird extends React.Component {
+export default class FlappyBird extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      started: false,
+      started: true,
       over: false
     }
     this.toggleStarted = this.toggleStarted.bind(this);
     this.toggleOver = this.toggleOver.bind(this);
-  }
-  componentDidMount() {
   }
   toggleStarted() {
     this.setState(state=>({
@@ -248,22 +230,11 @@ class FlappyBird extends React.Component {
     }))
   }
   render() {
-    if(!this.state.started) {
-      return(
-        <div id='flappy' className='game' style={{height: SCREENHEIGHT, width: SCREENWIDTH}}>
-          <i className='bi bi-caret-right-fill' id='start' style={startButton} onClick={this.toggleStarted}/>
-          <div id='ground' style={{height: GROUNDHEIGHT}}/>
-          <div id='grass' style={{height: GRASSHEIGHT}}/>
-          <StaticColumns/>
-          <StaticBird/>
-      </div>
-      )
-    }
     return(
       <div id='flappy' className='game' style={{height: SCREENHEIGHT, width: SCREENWIDTH}}>
+        <div id='ground' style={{height: GROUNDHEIGHT}}/>
+        <div id='grass' style={{height: GRASSHEIGHT}}/>
         <Score over={this.state.over}/>
-        <div id='ground' style={{height: GROUNDHEIGHT}}></div>
-        <div id='grass' style={{height: GRASSHEIGHT}}></div>
         <Columns/>
         <Bird over={this.state.over} toggleOver={this.toggleOver}/>
       </div>
@@ -271,4 +242,3 @@ class FlappyBird extends React.Component {
   }
 }
 
-export default FlappyBird;
