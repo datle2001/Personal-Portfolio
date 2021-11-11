@@ -1,0 +1,65 @@
+#start {
+  position: absolute;
+  font-size: 60px;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#start:hover {
+  color: grey;
+}
+.game {
+  position: relative;
+  margin: auto;
+  background-color: cyan;
+  overflow: hidden;
+  border: solid;
+  --speed: 4s;
+  z-index: -2;
+}
+#ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: orange;
+}
+#grass {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  background-color: rgb(18, 226, 18);
+}
+#bird {
+  position: absolute;
+  background-image: url('./FlappyBird.png');
+  background-size: cover;
+  z-index: 2;
+}
+.column {
+  background-color: rgb(21, 146, 21);
+  position: absolute;
+  z-index: -1;
+}
+.column-animate {
+  animation: column var(--speed) infinite linear;
+  -moz-animation: column var(--speed) infinite linear;
+  -webkit-animation: column var(--speed) infinite linear;
+}
+@keyframes column{
+  from {left: 650px}
+  to {left: -100px}
+}
+@-moz-keyframes column{
+  from {left: 650px}
+  to {left: -100px}
+}
+@-webkit-keyframes column{
+  from {left: 650px}
+  to {left: -100px}
+}
+.announce {
+  position: absolute;
+  z-index: 3;
+}

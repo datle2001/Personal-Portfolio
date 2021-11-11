@@ -1,0 +1,39 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 100vw;
+  z-index: 5;
+  background-color: #3f3836;
+  transition: 0.2s;
+}
+#logo {
+  display: inline-block;
+  font-family: Festive;
+  font-size: 50px;
+  color: white;
+  margin-left: 15%;
+  transition: 0.5s;
+}
+#logo:hover {
+  cursor: pointer;
+  color: #7bb649;
+}
+#right {
+  height: 25px;
+  margin-top: 30px;
+  margin-right: 7vw;
+  float: right;
+  text-align: right;
+  overflow: hidden;
+}
+.nav-link {
+  margin: 10px;
+  font-size: 20px;
+  color: white;
+  font-family: Roboto;
+  transition: 0.2s;
+}
+.nav-link:hover {
+  color: #0cf391;
+}
