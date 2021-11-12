@@ -9,26 +9,15 @@ const BIRDWIDTH = 50, BIRDHEIGHT = 35;
 const COLUMNWIDTH = 100, COLUMNBOTTOM = GROUNDHEIGHT+GRASSHEIGHT, COLUMNLEFT = SCREENWIDTH/2;
 const HOLEHEIGHT = 125;
 const FLYINGSPACE = SCREENHEIGHT - GROUNDHEIGHT - GRASSHEIGHT;
-const StaticColumns = () => {
-  return(
-    <div>
-      <div className='column' style={{width: COLUMNWIDTH, top: 0, left: SCREENWIDTH-100, height: 300}}></div>
-      <div className='column' style={{width: COLUMNWIDTH, bottom: COLUMNBOTTOM, left: SCREENWIDTH-100, height: FLYINGSPACE-300-HOLEHEIGHT}}></div>
-    </div>
-  )
-}
-const StaticBird = () => {
-  return (
-    <div id='bird' style={{width: BIRDWIDTH, height: BIRDHEIGHT, left: SCREENWIDTH/2-BIRDWIDTH/2, top: FLYINGSPACE/2}}/>
-  )
-}
+
 const StaticGame = () => {
   return (
     <div className='game' style={{height: SCREENHEIGHT, width: SCREENWIDTH}}>
       <div id='ground' style={{height: GROUNDHEIGHT}}/>
       <div id='grass' style={{height: GRASSHEIGHT}}/>
-      <StaticColumns/>
-      <StaticBird/>
+      <div className='column' style={{width: COLUMNWIDTH, top: 0, left: SCREENWIDTH-100, height: 300}}></div>
+      <div className='column' style={{width: COLUMNWIDTH, bottom: COLUMNBOTTOM, left: SCREENWIDTH-100, height: FLYINGSPACE-300-HOLEHEIGHT}}></div>
+      <div id='bird' style={{width: BIRDWIDTH, height: BIRDHEIGHT, left: SCREENWIDTH/2-BIRDWIDTH/2, top: FLYINGSPACE/2}}/>
     </div>
   )
 }

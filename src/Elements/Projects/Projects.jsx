@@ -1,3 +1,5 @@
+import { render } from '@testing-library/react';
+import react from 'react';
 import './Projects.css'
 
 const Description = (props) => {
@@ -42,18 +44,50 @@ const ProjectList = {
   }
 }
 
-const Projects = () => {
-  return (
-  <div id="projects" className="section">
-    <h2>My Projects</h2>
-    <div id="next"><i className="bi bi-chevron-compact-right"></i></div>
-    <div id="back"><i className="bi bi-chevron-compact-left"></i></div>
+class Projects extends react.Component{
+  constructor(props) {
+    super(props);
+    this.projNavigate = this.projNavigate.bind(this);
+  }
+  componentDidMount() {
+    this.projNavigate();
+  }
+  projNavigate() {
+    var projects = document.querySelectorAll(".project-tile");
+    var currentPage = 0;
+    projects[0].style.display = "block";
+    let next = document.querySelector("#next");
+    next.addEventListener("click", nextProject);
+    function nextProject() {
+      if (currentPage < projects.length - 1) {
+        projects[currentPage].style.display = "none";
+        projects[++currentPage].style.display = "block";
+      }
+    };
 
-    <ProjectTile id="proj1" title={ProjectList[0].title} text={ProjectList[0].text} link={ProjectList[0].link}/>
-
-    <ProjectTile id="proj2" title={ProjectList[1].title} text={ProjectList[1].text} link={ProjectList[1].link}/>
-  </div>
-  );
+    let back = document.querySelector("#back");
+    back.addEventListener("click", backProject);
+    function backProject() {
+      if (currentPage > 0) {
+        projects[currentPage].style.display = "none";
+        projects[--currentPage].style.display = "block";
+      }
+    };
+  }
+  render() {
+    return (
+      <div id="projects" className="section">
+        <h2>My Projects</h2>
+        <div id="next"><i className="bi bi-chevron-compact-right"></i></div>
+        <div id="back"><i className="bi bi-chevron-compact-left"></i></div>
+    
+        <ProjectTile id="proj1" title={ProjectList[0].title} text={ProjectList[0].text} link={ProjectList[0].link}/>
+    
+        <ProjectTile id="proj2" title={ProjectList[1].title} text={ProjectList[1].text} link={ProjectList[1].link}/>
+      </div>
+    );
+  }
+  
 }
 
 export default Projects;

@@ -22,7 +22,6 @@ const playingScore = {
   left: SCREENWIDTH/2-60
 }
 
-
 function randomHeight() {
   return Math.random()*(FLYINGSPACE - HOLEHEIGHT);
 };
@@ -213,16 +212,9 @@ export default class FlappyBird extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      started: true,
       over: false
     }
-    this.toggleStarted = this.toggleStarted.bind(this);
     this.toggleOver = this.toggleOver.bind(this);
-  }
-  toggleStarted() {
-    this.setState(state=>({
-      started: !state.started
-    }))
   }
   toggleOver() {
     this.setState(state => ({
