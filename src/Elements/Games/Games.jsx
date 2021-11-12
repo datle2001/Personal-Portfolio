@@ -21,33 +21,46 @@ const StaticGame = () => {
     </div>
   )
 }
+const ViewRender = (props) => {
+  if(!props.started) {
+    return(
+      <div>
+        <i className='bi bi-caret-right-fill gameControl' onClick={props.toggleStarted}/>
+        <StaticGame/>
+      </div>
+    )
+  }
+  else {
+    return(
+        <FlappyBird over={props.over} toggleOver={props.toggleOver}/>
+    )
+  }
+}
 class Games extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      started:false
+      started:false,
+      over: false
     }
     this.toggleStarted= this.toggleStarted.bind(this);
+    this.toggleOver = this.toggleOver.bind(this);
   }
   toggleStarted() {
     this.setState(state => ({
       started: !state.started
     }))
   }
+  toggleOver() {
+    this.setState(state => ({
+      over: !state.over
+    }))
+  }
   render() {
-    if(!this.state.started) {
-      return (
-        <div id="games" className="section">
-          <h2>Every-week Game</h2>
-          <i className='bi bi-caret-right-fill' id='start' onClick={this.toggleStarted}/>
-          <StaticGame/>
-        </div>
-      );
-    }
     return (
       <div id="games" className="section">
         <h2>Every-week Game</h2>
-        <FlappyBird/>
+        <ViewRender started={this.state.started} over={this.state.over} toggleStarted={this.toggleStarted} toggleOver={this.toggleOver}/>
       </div>
     );
   }

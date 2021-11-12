@@ -10,11 +10,11 @@ const FLYINGSPACE = SCREENHEIGHT - GROUNDHEIGHT - GRASSHEIGHT;
 let handle;
 
 const gameOver = {
-  top: SCREENHEIGHT/2-100, 
+  top: SCREENHEIGHT/2-200, 
   left: SCREENWIDTH/2-80
 }
 const gameOverScore = {
-  top: SCREENHEIGHT/2-50, 
+  top: SCREENHEIGHT/2-150, 
   left: SCREENWIDTH/2-60
 }
 const playingScore = {
@@ -86,9 +86,8 @@ class Score extends React.Component {
     else {
       return (
         <div>
-          <h1 className='announce'  style={gameOver}>
-            Game Over!
-          </h1>
+          <i className='bi bi-arrow-clockwise gameControl' onClick={this.props.toggleOver}/>
+          <h1 className='announce'  style={gameOver}>Game Over!</h1>
           <h2 className='announce' style={gameOverScore}>Score: {this.state.score}</h2>
         </div>
       )
@@ -208,29 +207,16 @@ class Bird extends React.Component {
     )
   }
 }
-export default class FlappyBird extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      over: false
-    }
-    this.toggleOver = this.toggleOver.bind(this);
-  }
-  toggleOver() {
-    this.setState(state => ({
-      over: !state.over
-    }))
-  }
-  render() {
-    return(
-      <div id='flappy' className='game' style={{height: SCREENHEIGHT, width: SCREENWIDTH}}>
-        <div id='ground' style={{height: GROUNDHEIGHT}}/>
-        <div id='grass' style={{height: GRASSHEIGHT}}/>
-        <Score over={this.state.over}/>
-        <Columns/>
-        <Bird over={this.state.over} toggleOver={this.toggleOver}/>
-      </div>
-    )
-  }
+const FlappyBird = (props) => {
+  return(
+    <div id='flappy' className='game' style={{height: SCREENHEIGHT, width: SCREENWIDTH}}>
+      <div id='ground' style={{height: GROUNDHEIGHT}}/>
+      <div id='grass' style={{height: GRASSHEIGHT}}/>
+      <Score over={props.over} toggleOver={props.toggleOver}/>
+      <Columns/>
+      <Bird over={props.over} toggleOver={props.toggleOver}/>
+    </div>
+  )
 }
 
+export default FlappyBird;

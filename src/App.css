@@ -10,7 +10,7 @@ a {
   box-shadow: 5px 5px 3px gray;
   margin-top: 100px;
   margin-bottom: 100px;
-  min-height: 100vh;
+
 }
 @media screen and (max-width: 1200px) {
   nav {

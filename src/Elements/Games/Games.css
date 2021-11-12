@@ -5,7 +5,7 @@
   -webkit-user-select: none;
   min-height: 100vh;
 }
-#start {
+.gameControl {
   position: absolute;
   left: 45%;
   top: 45%;
