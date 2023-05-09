@@ -11,7 +11,7 @@ footer {
 }
 .profile-link {
   display: block;
-  width: 100px;
+  width: fit-content;
   margin: auto;
   padding-top: 10px;
   padding-bottom: 10px;

@@ -1,6 +1,6 @@
-import './About.css'
+import './about.css'
 
-const About = () => {
+export const About = () => {
   return (
     <div id="about" className="section">
       <h2>About me</h2>
@@ -10,4 +10,3 @@ const About = () => {
   </div>
   );
 }
-export default About;

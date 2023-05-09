@@ -1,11 +1,7 @@
-import './Footer.css'
+import './footer.css'
+import { ProfileLink } from './profileLink';
 
-const ProfileLink = (props) => {
-  return(
-    <a href={props.link} className="profile-link" target="_blank" rel="noreferrer"><i className={props.icon}></i> {props.site}</a>
-  );
-}
-const Footer= () => {
+export const Footer= () => {
   return (
     <footer id="contact" >
       <div className="prof-links">
@@ -16,5 +12,3 @@ const Footer= () => {
     </footer>
   )
 }
-
-export default Footer;

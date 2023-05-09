@@ -1,19 +1,11 @@
-
 #arrow {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  width: 50px;
-  height: 50px;
-  background-color:gray;
-  font-size: 30px;
-  text-align: center;
+  font-size: 50px;
   opacity: 0.5;
   z-index: 5;
 }
 #arrow:visited {
-  color: red;
-}
-#arrow:active {
-  color: green;
+  color: grey;
 }

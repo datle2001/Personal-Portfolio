@@ -5,11 +5,3 @@
   -webkit-user-select: none;
   min-height: 100vh;
 }
-.gameControl {
-  position: absolute;
-  left: 45%;
-  top: 45%;
-  font-size: 60px;
-  z-index: 10;
-  cursor: pointer;
-}
